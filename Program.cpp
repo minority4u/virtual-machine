@@ -1,6 +1,8 @@
 #include "Program.hpp"
 
-Program::Program(unsigned short* opcodes, int numberOfProgramLines) : opcodes(opcodes), numberOfProgramLines(numberOfProgramLines){
+using namespace std;
+
+Program::Program(string programPath, unsigned short* opcodes, int numberOfProgramLines) : opcodes(opcodes), numberOfProgramLines(numberOfProgramLines), programPath(programPath){
 }
 
 Program::~Program(){
@@ -13,4 +15,8 @@ unsigned short* Program::getOpcodes(){
 
 int Program::getNumberOfProgramLines(){
     return numberOfProgramLines;
+}
+
+string Program::getProgramPath(){
+	return programPath;
 }

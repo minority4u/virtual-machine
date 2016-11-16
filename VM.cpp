@@ -31,6 +31,7 @@ VM::VM(Program* compiledProgram)
 	vmRegister = new unsigned short[vmRegisterSize];
 	vmStack = new unsigned short[vmStackSize];
 	vmSubroutineStack = new int[vmSubroutineStackSize];
+	vmProfiler = new Profiler(compiledProgram->getProgramPath());
 
 	// copy opCode from compiled program into vmMemory
 		for (int i = 0; i < programEnd; ++i){
@@ -50,6 +51,9 @@ void VM::run() {
 
 		// reads opCode from memory at programCounter position
 		opCode = readNextFromMemory();
+
+		vmProfiler->incrementExecutionCounter(progCounter);
+
 		// extract comand from opcode
 		cmd = opCode & 15;
 		// extract idX and idY from opcode
@@ -173,6 +177,7 @@ void VM::run() {
 			cout << "Can not interpretate cmd" << endl;
 		}
 	}
+	vmProfiler->printProfiler();
 }
 VM::~VM()
 {

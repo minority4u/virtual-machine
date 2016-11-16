@@ -43,7 +43,7 @@ Program* Compiler::compile(){
 
     file.close();
 
-    return new Program(program, fileLines);
+    return new Program(fileURL, program, fileLines);
 }
 
 int Compiler::countFileLines(){

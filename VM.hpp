@@ -1,6 +1,7 @@
 #ifndef VM_H_
 #define VM_H_
 #include "Program.hpp"
+#include "Profiler.hpp"
 
 class VM
 {
@@ -25,6 +26,7 @@ private:
 	unsigned short *vmRegister;
 	unsigned short *vmStack;
 	int *vmSubroutineStack;
+	Profiler *vmProfiler;
 
 	unsigned short readNextFromMemory();
 
