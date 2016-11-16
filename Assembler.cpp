@@ -1,4 +1,4 @@
-#include "Compiler.hpp"
+#include "Assembler.hpp"
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -24,13 +24,13 @@ enum opcodes {
 	RTS = 0b1101
 };
 
-Compiler::Compiler(string fileURL) : fileURL(fileURL){
+Assembler::Assembler(string fileURL) : fileURL(fileURL){
 }
 
-Compiler::~Compiler(){
+Assembler::~Assembler(){
 }
 
-Program* Compiler::compile(){
+Program* Assembler::compile(){
     fstream file(fileURL, ios::in);
     int fileLines = countFileLines();
     string line = "";
@@ -46,7 +46,7 @@ Program* Compiler::compile(){
     return new Program(fileURL, program, fileLines);
 }
 
-int Compiler::countFileLines(){
+int Assembler::countFileLines(){
     fstream file(fileURL, ios::in);
     int numberOfLines = 0;
     string line = "";
@@ -58,7 +58,7 @@ int Compiler::countFileLines(){
     return numberOfLines;
 }
 
-int Compiler::countCharInString(string str, char ch){
+int Assembler::countCharInString(string str, char ch){
 	int charCounter = 0;
 	for (int i = 0; i < str.size(); i++) {
 		if (str.at(i) == ch) {
@@ -69,7 +69,7 @@ int Compiler::countCharInString(string str, char ch){
 }
 
 
-unsigned short Compiler::compileLineToOpcode(string line) {
+unsigned short Assembler::compileLineToOpcode(string line) {
 
 	int value = 0;
 	int toMem, fromMem;

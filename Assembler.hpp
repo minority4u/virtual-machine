@@ -1,12 +1,12 @@
-#ifndef __COMPILER_H__
-#define __COMPILER_H__
+#ifndef __ASSEMBLER_H__
+#define __ASSEMBLER_H__
 
 #include "Program.hpp"
 #include <string>
 
 using namespace std;
 
-class Compiler{
+class Assembler{
     private:
         string fileURL;
 
@@ -14,8 +14,8 @@ class Compiler{
         unsigned short compileLineToOpcode(const string);
         int countCharInString(string, char);
     public:
-        Compiler(string);
-        virtual ~Compiler();
+        Assembler(string);
+        virtual ~Assembler();
         Program* compile();
 };
 
