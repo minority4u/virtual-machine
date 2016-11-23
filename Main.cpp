@@ -7,9 +7,9 @@ using namespace std;
 int main(int argc, char** arv){
 	cout << "start VM" << endl;
 	
-    VM vm(Assembler("program.txt").compile());
+    VM vm(Assembler("fib").compile());
     vm.run();
 
-    cout << "end VN" << endl;
+    cout << "end VM" << endl;
 
 }

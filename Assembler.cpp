@@ -38,7 +38,9 @@ Program* Assembler::compile(){
     unsigned short* program = new unsigned short[fileLines];
     
     for(int i = 0; getline(file, line, '\n'); i++){
-        program[i] = compileLineToOpcode(line);
+    	if(line[0] != '/'){
+    		program[i] = compileLineToOpcode(line);
+    	}
     }
 
     file.close();
