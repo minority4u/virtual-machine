@@ -128,16 +128,16 @@ void VM::run() {
 			progCounter++;
 			break;
 		case PUSH:
-			cout << "Push value: " << vmRegister[idX] << " from Register [" << idX <<
-			     "] to stack at position [" << stackPointer << "]" << endl;
+			cout << "Push value: " << vmRegister[idX] << " from Register[" << idX <<
+			     "] to stack[" << stackPointer << "]" << endl;
 			vmStack[stackPointer] = vmRegister[idX];
 			stackPointer++;
 			progCounter++;
 			break;
 		case POP:
 			stackPointer--;
-			cout << "Pop value: " << vmStack[stackPointer] << " from stack at position [" << stackPointer <<
-			     "] to Register [" << idX << "]" << endl;
+			cout << "Pop value: " << vmStack[stackPointer] << " from stack[" << stackPointer <<
+			     "] to Register[" << idX << "]" << endl;
 			vmRegister[idX] = vmStack[stackPointer];
 			progCounter++;
 			break;
