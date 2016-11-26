@@ -1,0 +1,70 @@
+LOAD 1			
+MOV R1, R0			# R1 wird nicht mehr verändert. Wird zum Addieren/Subtrahieren von 1 benutzt
+LOAD 8				# Wie viele Fibonacci-Zahlen (n) in Speicher schreiben? Programm funktioniert nur bei n>=2!
+MOV R2, R0 			# R2 wird als Zählvariable benutzt
+SUB R2, R1 			# Zählvariable von Anfang an um eins verringern
+MOV R10, R2			# Kopie von Zählvariable anlegen
+LOAD 3000			# Ab wo soll in den Speicher geschrieben werden?
+MOV R3, R0 			# R3 wird als 'Speicherstellenzeiger' benutzt
+ADD R3, R1 			# 'Speicherstellenzeiger' um 1 erhöhen, da jedes mal die ersten zwei Zahlen schon geschrieben werden
+MOV R4, R3 			# Kopie des 'Speicherstellenzeigers' anlegen
+LOAD 0				# 0-te Fibonacci-Zahl laden
+PUSH R0  			# 0-te Fibonacci-Zahl auf dem Stack ablegen 
+LOAD 1 				# 1-te Fibonacci-Zahl laden
+PUSH R0  			# 1-te Fibonacci-Zahl auf dem Stack ablegen 
+JSR 16              # fib(n) Methodenaufruf
+JMP 69   			# Programm beenden, sobald der rekursive Aufruf zu Ende ist
+LOAD 0  			# Ab hier beginnt Methode! Jedes mal die 0-te und 1-te Fibonacci-Zahl in den Speicher schreiben
+MOV (R4), R0
+MOV R5, R4
+ADD R5, R1
+MOV (R5), R1
+MOV R5, R10
+LOAD 2 				# Prüfen ob n == 2
+SUB R5, R0
+MOV R0, R5
+JIZ 48      		# Methodenaufruf beenden, weil n == 2
+JIH 27              # weiter gehts, weil n>2
+NOP
+SUB R2, R1         	# n um 1 verringern 
+MOV R0, R2
+JIH 32              # falls n > 0 --> rekursiver Methodenaufruf
+JIZ 33              # n == 0 --> nun den 'Call-Stack' abbauen
+JSR 16    
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+POP R8         		# fibn-1 vom stack holen
+POP R9     			# fibn-2 vom stack holen
+NOP
+ADD R9, R8       	# fibn berechnen
+ADD R3, R1
+MOV (R3), R9 		# fibn in Speicher schreiben
+PUSH R8				# fib-1 auf den Stack legen
+PUSH R9				# fibn auf dne Stack legen
+RTS  				# return
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP
+NOP

@@ -1,31 +1,70 @@
-(2 % 1x) NOP
-(2 % 1x) LOAD 12
-(2 % 1x) MOV R1, R0
-(2 % 1x) LOAD 2048
-(2 % 1x) MOV (R0), R1
-(2 % 1x) MOV R2, (R0)
-(2 % 1x) LOAD 2049
-(2 % 1x) MOV (R0), R1
-(2 % 1x) MOV R2, (R0)
-(2 % 1x) MOV (R0), (R1)
-(2 % 1x) ADD R2, R1
-(2 % 1x) LOAD 4
-(2 % 1x) SUB R2, R0
-(2 % 1x) LOAD 2
-(2 % 1x) MUL R2, R0
-(2 % 1x) LOAD 10
-(2 % 1x) DIV R2, R0
-(2 % 1x) PUSH R2
-(2 % 1x) POP R5
-(2 % 1x) LOAD 1
-(2 % 1x) MOV R8, R0
-(2 % 1x) JSR 25
-(2 % 1x) PUSH R0
-(2 % 1x) PUSH R8
-(2 % 1x) JMP 30
-(2 % 1x) LOAD 5
-(10 % 5x) SUB R0, R8
-(10 % 5x) JIZ 29
-(8 % 4x) JMP 26
-(2 % 1x) RTS 
-(2 % 1x) NOP
+(0 % 1x) LOAD 1
+(0 % 1x) MOV R1, R0
+(0 % 1x) LOAD 20
+(0 % 1x) MOV R2, R0
+(0 % 1x) SUB R2, R1
+(0 % 1x) MOV R10, R2
+(0 % 1x) LOAD 3000
+(0 % 1x) MOV R3, R0
+(0 % 1x) ADD R3, R1
+(0 % 1x) MOV R4, R3
+(0 % 1x) LOAD 0
+(0 % 1x) PUSH R0
+(0 % 1x) LOAD 1
+(0 % 1x) PUSH R0
+(0 % 1x) JSR 16
+(0 % 1x) JMP 69
+(0 % 19x) LOAD 0
+(0 % 19x) MOV (R4), R0
+(0 % 19x) MOV R5, R4
+(0 % 19x) ADD R5, R1
+(0 % 19x) MOV (R5), R1
+(0 % 19x) MOV R5, R10
+(0 % 19x) LOAD 2
+(0 % 19x) SUB R5, R0
+(0 % 19x) MOV R0, R5
+(0 % 19x) JIZ 48
+(0 % 19x) JIH 27
+(0 % 19x) NOP
+(0 % 19x) SUB R2, R1
+(0 % 19x) MOV R0, R2
+(0 % 19x) JIH 32 
+(0 % 1x) JIZ 33
+(0 % 18x) JSR 16
+(0 % 19x) NOP
+(0 % 19x) NOP
+(0 % 19x) NOP
+(0 % 19x) NOP
+(0 % 19x) NOP
+(0 % 19x) NOP
+(0 % 19x) NOP
+(0 % 19x) POP R8
+(0 % 19x) POP R9
+(0 % 19x) NOP
+(0 % 19x) ADD R9, R8
+(0 % 19x) ADD R3, R1
+(0 % 19x) MOV (R3), R9 
+(0 % 19x) PUSH R8
+(0 % 19x) PUSH R9
+(0 % 19x) RTS
+(0 % 0x) NOP
+(0 % 0x) NOP
+(0 % 0x) NOP
+(0 % 0x) NOP
+(0 % 0x) NOP
+(0 % 0x) NOP
+(0 % 0x) NOP
+(0 % 0x) NOP
+(0 % 0x) NOP
+(0 % 0x) NOP
+(0 % 0x) NOP
+(0 % 0x) NOP
+(0 % 0x) NOP
+(0 % 0x) NOP
+(0 % 0x) NOP
+(0 % 0x) NOP
+(0 % 0x) NOP
+(0 % 0x) NOP
+(0 % 0x) NOP
+(0 % 0x) NOP
+(0 % 1x) NOP
