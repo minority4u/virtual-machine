@@ -24,43 +24,46 @@ enum opcodes {
 	RTS = 0b1101
 };
 
-Assembler::Assembler(string fileURL) : fileURL(fileURL){
+Assembler::Assembler(string fileURL) : fileURL(fileURL) {
 }
 
-Assembler::~Assembler(){
+Assembler::~Assembler() {
 }
 
-Program* Assembler::compile(){
-    fstream file(fileURL, ios::in);
-    int fileLines = countFileLines();
-    string line = "";
+Program* Assembler::compile() {
+	fstream file(fileURL, ios::in);
+	int fileLines = countFileLines();
+	string line = "";
 
-    unsigned short* program = new unsigned short[fileLines];
-    
-    for(int i = 0; getline(file, line, '\n'); i++){
-    	if(line[0] != '/'){
-    		program[i] = compileLineToOpcode(line);
-    	}
-    }
+	unsigned short* program = new unsigned short[fileLines];
 
-    file.close();
+	for (int i = 0; getline(file, line, '\n'); i++) {
+		// ignore lines beginning with a linecomment
+		if (line[0] != '/') {
+			program[i] = compileLineToOpcode(line);
+		}
+	}
 
-    return new Program(fileURL, program, fileLines);
+	file.close();
+
+	return new Program(fileURL, program, fileLines);
 }
 
-int Assembler::countFileLines(){
-    fstream file(fileURL, ios::in);
-    int numberOfLines = 0;
-    string line = "";
+int Assembler::countFileLines() {
+	fstream file(fileURL, ios::in);
+	int numberOfLines = 0;
+	string line = "";
+	// ignore lines beginning with a linecomment
+	for (int i = 0; getline(file, line, '\n'); i++) {
+		if (line[0] != '/') {
+			numberOfLines++;
+		}
+	}
 
-    for(int i = 0; getline(file, line, '\n'); i++){
-        numberOfLines++;
-    }
-
-    return numberOfLines;
+	return numberOfLines;
 }
 
-int Assembler::countCharInString(string str, char ch){
+int Assembler::countCharInString(string str, char ch) {
 	int charCounter = 0;
 	for (int i = 0; i < str.size(); i++) {
 		if (str.at(i) == ch) {

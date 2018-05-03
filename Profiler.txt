@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 (0 % 1x) LOAD 1
 (0 % 1x) MOV R1, R0
 (0 % 1x) LOAD 20
@@ -47,6 +48,54 @@
 (0 % 19x) PUSH R8
 (0 % 19x) PUSH R9
 (0 % 19x) RTS
+=======
+(1 % 1x) LOAD 1
+(1 % 1x) MOV R1, R0
+(1 % 1x) LOAD 0
+(1 % 1x) MOV R2, R0
+(1 % 1x) MOV R3, R2
+(1 % 1x) LOAD 4	
+(1 % 1x) PUSH R0
+(1 % 1x) JSR 10;call_the_function
+(1 % 1x) JMP 50;jump_to_the_end
+(0 % 0x) // recursive function
+(6 % 6x) POP R0
+(6 % 6x) JIZ 40;n==0_jump
+(4 % 4x) SUB R0, R1
+(4 % 4x) JIZ 30;n==1_jump
+(3 % 3x) PUSH R0 
+(3 % 3x) JSR 10 //recursive_call_with_n-1
+(3 % 3x) POP R0
+(3 % 3x) JIZ 42
+(2 % 2x) SUB R0, R1
+(2 % 2x) PUSH R0 
+(2 % 2x) JSR 10 //recursive_call_with_n-2
+(2 % 2x) POP R0
+(2 % 2x) POP R4
+(2 % 2x) ADD R3, R4
+(2 % 2x) POP R4
+(2 % 2x) ADD R3, R4
+(2 % 2x) PUSH R3
+(2 % 2x) PUSH R0
+(2 % 2x) RTS
+(0 % 0x) // return 1
+(1 % 1x) PUSH R1
+(1 % 1x) PUSH R1
+(1 % 1x) RTS
+>>>>>>> Stashed changes
+(0 % 0x) NOP
+(0 % 0x) NOP
+(0 % 0x) NOP
+(0 % 0x) NOP
+(0 % 0x) NOP
+(0 % 0x) NOP
+<<<<<<< Updated upstream
+=======
+(0 % 0x) // return 0
+(2 % 2x) PUSH R2
+(2 % 2x) PUSH R2
+(3 % 3x) RTS
+>>>>>>> Stashed changes
 (0 % 0x) NOP
 (0 % 0x) NOP
 (0 % 0x) NOP
@@ -54,12 +103,7 @@
 (0 % 0x) NOP
 (0 % 0x) NOP
 (0 % 0x) NOP
-(0 % 0x) NOP
-(0 % 0x) NOP
-(0 % 0x) NOP
-(0 % 0x) NOP
-(0 % 0x) NOP
-(0 % 0x) NOP
+<<<<<<< Updated upstream
 (0 % 0x) NOP
 (0 % 0x) NOP
 (0 % 0x) NOP
@@ -68,3 +112,6 @@
 (0 % 0x) NOP
 (0 % 0x) NOP
 (0 % 1x) NOP
+=======
+(1 % 1x) POP R0
+>>>>>>> Stashed changes
