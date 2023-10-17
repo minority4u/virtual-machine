@@ -1,5 +1,5 @@
-# Implementation of a full virtual machine
+# Implementation of a virtual machine
 
-This code was implemented to understand the functions of a virtual machine, by implementing an parser, profiler, which could interpret simple machine code instructions and run them in an virtual machine with own stack. 
+This code was developed with the purpose of comprehending the operations of a virtual machine. It includes a parser and profiler capable of interpreting basic machine code instructions and executing them within a dedicated virtual machine with its stack.
 
-Virtual Machine implementation + Opcode for the fibonacci numbers
+Virtual Machine + Opcode for the fibonacci numbers
